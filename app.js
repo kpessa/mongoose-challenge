@@ -9,6 +9,7 @@ app.use(express.json());
 //! IMPORTING ROUTES
 app.use('/api', require('./routes/api'));
 
+mongoose.set('useCreateIndex', true);
 mongoose
   .connect(process.env.MONGODB_URI || 'mongodb://localhost/nosql', {
     useFindAndModify: false,
@@ -17,7 +18,7 @@ mongoose
   })
   .then(() => {
     console.log('Connected to database');
-    mongoose.set('debug', true);
+    // mongoose.set('debug', true);
     app.listen(port, () => {
       console.log(`App listening at http://localhost:${port}`);
     });

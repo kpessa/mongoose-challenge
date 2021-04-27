@@ -1,8 +1,9 @@
 const router = require('express').Router();
 
-const { addThought } = require('../../controllers/Thought');
+const { getAllThoughts, addThought, removeThought, deleteAllThoughts } = require('../../controllers/Thought');
 
 //! Five CRUD Operations
-router.route('/:userId').post(addThought);
+router.route('/').get(getAllThoughts).post(addThought).delete(deleteAllThoughts);
+router.route('/:id').delete(removeThought);
 
 module.exports = router;
