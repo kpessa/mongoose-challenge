@@ -7,7 +7,6 @@ const port = 3000;
 app.use(express.json());
 
 //! IMPORTING ROUTES
-app.use('/', require('./routes/index'));
 app.use('/api', require('./routes/api'));
 
 mongoose
